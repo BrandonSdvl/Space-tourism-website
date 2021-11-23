@@ -1,10 +1,9 @@
 <template lang="pug">
-h2 Home
+h2 Crew
 </template>
 
 <script>
 export default {
-  name: "Home",
-  components: {},
+  name: "Crew",
 };
 </script>
