@@ -1,0 +1,11 @@
+@mixin set-background($view: 'home') {
+    background-image: url('../assets/'+ $view + '/background-'+ $view +'-mobile.jpg');
+
+    @include tablet {
+        background-image: url('../assets/'+ $view + '/background-'+ $view +'-tablet.jpg');
+    }
+
+    @include laptop {
+        background-image: url('../assets/'+ $view + '/background-'+ $view +'-desktop.jpg');
+    }
+}

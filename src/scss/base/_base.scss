@@ -8,4 +8,24 @@ body {
     font-family: $main-font;
     padding: 0;
     margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.body {
+    &--home {
+        @include set-background('home');
+    }
+
+    &--destination {
+        @include set-background('destination');
+    }
+
+    &--crew {
+        @include set-background('crew');
+    }
+
+    &--technology {
+        @include set-background('technology');
+    }
 }
