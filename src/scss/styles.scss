@@ -1,7 +1,10 @@
 @import './utils/typography';
+@import './utils/colors';
 @import './utils/breakpoints';
 @import './utils/set-background';
 
 @import './base/base';
 
-@import './components/nav-bar'
+@import './components/nav-bar';
+
+@import './views/destination.scss';

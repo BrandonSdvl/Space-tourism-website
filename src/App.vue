@@ -1,7 +1,7 @@
 <template lang="pug">
 Header
 main
-  router-view.view
+  router-view.view(:style="'view--' + currentRoute")
 </template>
 <script>
 import Header from "./components/Header.vue";

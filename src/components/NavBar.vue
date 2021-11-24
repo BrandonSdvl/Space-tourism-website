@@ -4,10 +4,15 @@ nav.nav
     :src="require('../assets/shared/icon-close.svg')",
     @click="$emit('showNav')"
   )
-  router-link(to="/") 00 Home
-  router-link(to="/destination") 01 Destination
-  router-link(to="/crew") 02 Crew
-  router-link(to="/technology") 03 Technology
+  ul
+    li
+      router-link(to="/") 00 Home
+    li
+      router-link(to="/destination") 01 Destination
+    li
+      router-link(to="/crew") 02 Crew
+    li
+      router-link(to="/technology") 03 Technology
 </template>
 
 <script>

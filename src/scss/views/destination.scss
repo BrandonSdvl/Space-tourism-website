@@ -1,0 +1,35 @@
+.destination {
+    &__image-container {
+        position: relative;
+        height: 45.34vw;
+        width: 100%;
+    }
+
+    &__img {
+        width: 45.34vw;
+        height: 45.34vw;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__content-container {
+        position: relative;
+    }
+
+    &__content {
+        position: absolute;
+    }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
