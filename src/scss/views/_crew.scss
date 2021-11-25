@@ -1,13 +1,13 @@
-.destination {
+.crew {
     &__image-container {
         position: relative;
-        height: 45.34vw;
+        height: 31.26vh;
         width: 100%;
     }
 
     &__img {
-        width: 45.34vw;
-        height: 45.34vw;
+        width: auto;
+        height: 31.26vh;
         position: absolute;
         left: 0;
         right: 0;
@@ -22,14 +22,4 @@
     &__content {
         position: absolute;
     }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
 }

@@ -10,7 +10,10 @@ section.view--destination
         :currSlide="currDestination",
         @updateSlide="updateSlide"
       )
-        img.destination__img(:src="destination.images.png", draggable="false")
+        img.destination__img(
+          :src="destination.images.png || destination.images.webp",
+          draggable="false"
+        )
     nav.destination__nav
       ul
         li(
