@@ -1,5 +1,5 @@
 <template lang="pug">
-header
+header.header
   img.header__logo(:src="require('../assets/shared/logo.svg')")
   img.header__hamburger(
     :src="require('../assets/shared/icon-hamburger.svg')",
