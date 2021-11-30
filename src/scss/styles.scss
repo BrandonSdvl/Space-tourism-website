@@ -1,5 +1,5 @@
-@import './utils/typography';
 @import './utils/colors';
+@import './utils/typography';
 @import './utils/breakpoints';
 @import './utils/set-background';
 
@@ -8,6 +8,8 @@
 @import './components/header';
 @import './components/nav-bar';
 
+@import './views/common';
+@import './views/home';
 @import './views/destination';
 @import './views/crew';
 @import './views/technology';

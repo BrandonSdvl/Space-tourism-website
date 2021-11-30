@@ -11,7 +11,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     color: $white;
-    min-height: 100vh
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+a {
+    text-decoration: none
 }
 
 .body {

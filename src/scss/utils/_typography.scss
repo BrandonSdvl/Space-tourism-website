@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;400&family=Bellefair&display=swap');
-
 $main-font: 'Bellefair',
 serif,
 sans-serif;
 
 $second-font: 'Barlow Condensed',
 sans-serif;
+
+$third-font: 'Barlow',
+sans-serif;
+
+.body-text {
+    font-family: $third-font;
+    line-height: 25px;
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center;
+    color: $light-gray;
+}
