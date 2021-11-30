@@ -1,6 +1,8 @@
 <template lang="pug">
 section.view--destination
-  h2.view__title 01 Pick your destination
+  h2.view__title
+    span.view__number 01 &nbsp;
+    | Pick your destination
   .destination
     .destination__image-container
       Slider(
@@ -15,8 +17,9 @@ section.view--destination
           draggable="false"
         )
     nav.destination__nav
-      ul
-        li(
+      .destination__indicator(ref="indicator")
+      ul.destination__list
+        li.destination__list-item(
           v-for="(destination, idx) in destinations",
           @click="currDestination = idx"
         ) {{ destination.name }}
@@ -29,8 +32,8 @@ section.view--destination
         @updateSlide="updateSlide"
       )
         .destination__details
-          h2 {{ destination.name }}
-          p {{ destination.description }}
+          h2.destination__name {{ destination.name }}
+          p.body-text {{ destination.description }}
         .destination__numbers
           div
             h3 Avg. distance
@@ -42,7 +45,7 @@ section.view--destination
 
 <script>
 import { useStore } from "vuex";
-import { computed, ref } from "vue";
+import { computed, ref, onMounted, watch, onUnmounted } from "vue";
 import Slider from "../components/Slider.vue";
 
 export default {
@@ -52,15 +55,40 @@ export default {
   },
   setup() {
     const store = useStore();
-    const currDestination = ref(0);
+    let currDestination = ref(0);
+    const indicator = ref(null);
+    let items = [];
+
+    onMounted(() => {
+      window.addEventListener("resize", moveIndicator);
+      items = document.querySelectorAll(".destination__list-item");
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener("resize", moveIndicator);
+    });
+
+    watch(currDestination, () => {
+      moveIndicator();
+    });
 
     const updateSlide = (newSlide) => {
       currDestination.value = newSlide;
     };
 
+    const moveIndicator = () => {
+      indicator.value.style.left = `${
+        items[currDestination.value].getBoundingClientRect().left
+      }px`;
+      indicator.value.style.width = `${
+        items[currDestination.value].clientWidth
+      }px`;
+    };
+
     return {
       destinations: computed(() => store.state.destinations),
       slidesLen: computed(() => store.state.destinations.length),
+      indicator,
       currDestination,
       updateSlide,
     };

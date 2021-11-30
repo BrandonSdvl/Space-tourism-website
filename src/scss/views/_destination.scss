@@ -2,7 +2,7 @@
     &__image-container {
         position: relative;
         height: 45.34vw;
-        width: 100%;
+        width: 100vw;
     }
 
     &__img {
@@ -17,9 +17,87 @@
 
     &__content-container {
         position: relative;
+        height: auto;
     }
 
     &__content {
         position: absolute;
+        text-align: center;
+        width: 87.2vw;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+    &__nav {
+        margin: 30px 0;
+        position: relative;
+    }
+
+    &__list {
+        display: flex;
+        padding: 0;
+        width: 63.4vw;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between;
+        padding-bottom: 14px;
+    }
+
+    &__list-item {
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 2.36px;
+        color: $white;
+        font-family: $second-font;
+        font-weight: 200;
+    }
+
+    &__indicator {
+        height: 3px;
+        background-color: $white;
+        width: 30px;
+        position: absolute;
+        transition: width 0.2s ease-in, left 0.2s ease-in;
+        left: 18.3vw;
+        bottom: 0;
+    }
+
+    &__name {
+        font-family: $main-font;
+        font-size: 56px;
+        text-transform: uppercase;
+        font-weight: 150;
+        margin: 0;
+    }
+
+    &__details {
+        padding-bottom: 35px;
+        border-bottom: 1px solid $dark-gray;
+        margin-bottom: 35px;
+    }
+
+    &__numbers {
+        div {
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-size: 14px;
+            letter-spacing: 2.36px;
+            font-family: $second-font;
+            text-transform: uppercase;
+            font-weight: 200;
+            color: $light-gray;
+        }
+
+        span {
+            font-family: $main-font;
+            font-size: 28px;
+            color: $white;
+            text-transform: uppercase;
+            font-weight: 100;
+        }
     }
 }

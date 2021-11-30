@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Bellefair";
+    src: url("../font/Bellefair-Regular.otf");
+}
+
 $main-font: 'Bellefair',
 serif,
 sans-serif;
@@ -15,4 +20,5 @@ sans-serif;
     font-size: 15px;
     text-align: center;
     color: $light-gray;
+    margin: 0;
 }

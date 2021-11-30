@@ -8,5 +8,11 @@
         text-align: center;
         margin-top: 0;
         color: $light-gray;
+        margin-bottom: 35px;
+    }
+
+    &__number {
+        font-weight: bold;
+        color: $dark-gray;
     }
 }
