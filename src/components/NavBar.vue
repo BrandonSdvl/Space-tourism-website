@@ -7,19 +7,19 @@ nav.nav
   ul.nav__list
     .nav__indicator(ref="indicator")
     li.nav__item
-      router-link.nav__link(to="/")
+      router-link.nav__link(to="/", @click="$emit('showNav')")
         span.nav__number 00 &nbsp;
         | Home
     li.nav__item
-      router-link.nav__link(to="/destination")
+      router-link.nav__link(to="/destination", @click="$emit('showNav')")
         span.nav__number 01 &nbsp;
         | Destination
     li.nav__item
-      router-link.nav__link(to="/crew")
+      router-link.nav__link(to="/crew", @click="$emit('showNav')")
         span.nav__number 02 &nbsp;
         | Crew
     li.nav__item
-      router-link.nav__link(to="/technology")
+      router-link.nav__link(to="/technology", @click="$emit('showNav')")
         span.nav__number 03 &nbsp;
         | Technology
 </template>
