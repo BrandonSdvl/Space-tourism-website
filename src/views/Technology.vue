@@ -4,7 +4,7 @@ section.view--technology
     span.view__number 03 &nbsp;
     | Space launch 101
   .technology
-    .technology__image-container
+    .technology__image-container.disable-selection
       Slider(
         v-show="currTechnology === idx",
         v-for="(tech, idx) in technology",

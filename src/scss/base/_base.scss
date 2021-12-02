@@ -14,6 +14,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     width: 100vw;
+    transition: background-image 0.2s ease-in;
 }
 
 html {
@@ -62,12 +63,33 @@ ul {
     user-select: none;
 }
 
+.fade-enter-from {
+    opacity: 0;
+    position: absolute;
+}
+
+.fade-enter-to {
+    opacity: 1;
+    position: relative;
+}
+
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.5s ease;
 }
 
-.fade-enter-from,
+.fade-leave-from {
+    opacity: 1;
+    position: relative;
+}
+
 .fade-leave-to {
     opacity: 0;
+    position: absolute;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }

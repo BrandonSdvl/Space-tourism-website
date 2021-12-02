@@ -1,14 +1,17 @@
 .technology {
     &__image-container {
         position: relative;
+        min-height: 170px;
         height: 24vh;
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     &__img {
         width: 100%;
+        min-height: 170px;
         height: 24vh;
-        position: absolute;
         left: 0;
         right: 0;
         margin-left: auto;
@@ -21,6 +24,8 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        display: flex;
+        justify-content: center;
 
         span {
             font-size: 14px;
@@ -29,10 +34,6 @@
             letter-spacing: 2.36px;
             font-weight: 200;
         }
-    }
-
-    &__content {
-        position: absolute;
     }
 
     &__nav {
@@ -56,7 +57,7 @@
         line-height: 40px;
         font-size: 16px;
         font-family: $main-font;
-        transition: background-color 0.2 ease-in;
+        transition: background-color 0.2s ease-in;
 
         &--active {
             background-color: $white;

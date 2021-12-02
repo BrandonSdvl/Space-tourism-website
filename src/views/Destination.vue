@@ -4,7 +4,7 @@ section.view--destination
     span.view__number 01 &nbsp;
     | Pick your destination
   .destination
-    .destination__image-container
+    .destination__image-container.disable-selection
       Slider(
         v-show="currDestination === idx",
         v-for="(destination, idx) in destinations",

@@ -1,7 +1,9 @@
 <template lang="pug">
 Header
-main
-  router-view.view(:style="'view--' + currentRoute")
+main.main
+  router-view.view(:style="'view--' + currentRoute", v-slot="{ Component }")
+    transition(name="fade")
+      component(:is="Component")
 </template>
 <script>
 import Header from "./components/Header.vue";

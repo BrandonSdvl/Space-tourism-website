@@ -4,7 +4,7 @@ section.view--crew
     span.view__number 02 &nbsp;
     | Meet your crew
   .crew
-    .crew__image-container
+    .crew__image-container.disable-selection
       Slider(
         v-show="currCrew === idx",
         v-for="(crewmate, idx) in crew",
