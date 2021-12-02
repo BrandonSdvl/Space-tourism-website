@@ -1,6 +1,8 @@
 <template lang="pug">
 section.view--crew
-  h2.view__title 02 Meet your crew
+  h2.view__title 
+    span.view__number 02 &nbsp;
+    | Meet your crew
   .crew
     .crew__image-container
       Slider(
@@ -15,8 +17,12 @@ section.view--crew
           draggable="false"
         )
     nav.crew__nav
-      ul
-        li(v-for="(crewmate, idx) in crew", @click="currCrew = idx")
+      ul.crew__list
+        li.crew__list-item(
+          v-for="(crewmate, idx) in crew",
+          @click="currCrew = idx",
+          :class="{ 'crew__list-item--active': currCrew === idx }"
+        )
     .crew__content-container.disable-selection
       Slider.crew__content(
         v-show="currCrew === idx",
@@ -25,9 +31,9 @@ section.view--crew
         :currSlide="currCrew",
         @updateSlide="updateSlide"
       )
-        span {{ crewmate.role }}
-        h3 {{ crewmate.name }}
-        p {{ crewmate.bio }}
+        span.crew__role {{ crewmate.role }}
+        h3.crew__name {{ crewmate.name }}
+        p.body-text {{ crewmate.bio }}
 </template>
 
 <script>

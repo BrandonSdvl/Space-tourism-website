@@ -1,13 +1,18 @@
 .crew {
+    width: 87.2vw;
+    margin-left: auto;
+    margin-right: auto;
+
     &__image-container {
         position: relative;
         height: 31.26vh;
         width: 100%;
+        border-bottom: 1px solid $dark-gray;
     }
 
     &__img {
         width: auto;
-        height: 31.26vh;
+        height: calc(31.26vh - 1px);
         position: absolute;
         left: 0;
         right: 0;
@@ -17,9 +22,55 @@
 
     &__content-container {
         position: relative;
+        width: 100%;
+        text-align: center;
     }
 
     &__content {
         position: absolute;
+    }
+
+    &__nav {
+        margin: 35px 0;
+    }
+
+    &__list {
+        display: flex;
+        gap: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        justify-content: center;
+        padding: 0;
+    }
+
+    &__list-item {
+        width: 10px;
+        height: 10px;
+        background-color: $dark-gray;
+        border-radius: 50%;
+        transition: background-color 0.2s ease;
+
+        &--active {
+            background-color: $white;
+        }
+    }
+
+    &__role {
+        text-transform: uppercase;
+        font-family: $main-font;
+        font-weight: 100;
+        font-size: 16px;
+        color: $gray;
+    }
+
+    &__name {
+        font-family: $main-font;
+        text-transform: uppercase;
+        color: $white;
+        font-size: 24px;
+        font-weight: 100;
+        margin-top: 12px;
+        margin-bottom: 16px;
     }
 }
