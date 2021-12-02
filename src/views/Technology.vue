@@ -1,6 +1,8 @@
 <template lang="pug">
 section.view--technology
-  h2.view__title 03 Space launch 101
+  h2.view__title 
+    span.view__number 03 &nbsp;
+    | Space launch 101
   .technology
     .technology__image-container
       Slider(
@@ -12,8 +14,12 @@ section.view--technology
       )
         img.technology__img(:src="tech.images.landscape", draggable="false")
     nav.technology__nav
-      ul
-        li(v-for="(tech, idx) in technology", @click="currTechnology = idx") {{ idx + 1 }}
+      ul.technology__list
+        li.technology__list-item(
+          v-for="(tech, idx) in technology",
+          @click="currTechnology = idx",
+          :class="{ 'technology__list-item--active': currTechnology === idx }"
+        ) {{ idx + 1 }}
     .technology__content-container.disable-selection
       Slider.technology__content(
         v-show="currTechnology === idx",
@@ -22,9 +28,9 @@ section.view--technology
         :currSlide="currTechnology",
         @updateSlide="updateSlide"
       )
-        span The terminology...
-        h3 {{ tech.name }}
-        p {{ tech.description }}
+        span THE TERMINOLOGY...
+        h3.heading-3 {{ tech.name }}
+        p.body-text {{ tech.description }}
 </template>
 
 <script>

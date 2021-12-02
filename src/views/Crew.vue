@@ -32,7 +32,7 @@ section.view--crew
         @updateSlide="updateSlide"
       )
         span.crew__role {{ crewmate.role }}
-        h3.crew__name {{ crewmate.name }}
+        h3.heading-3 {{ crewmate.name }}
         p.body-text {{ crewmate.bio }}
 </template>
 

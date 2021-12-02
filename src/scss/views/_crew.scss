@@ -41,7 +41,6 @@
         margin-right: auto;
         width: auto;
         justify-content: center;
-        padding: 0;
     }
 
     &__list-item {
@@ -62,15 +61,5 @@
         font-weight: 100;
         font-size: 16px;
         color: $gray;
-    }
-
-    &__name {
-        font-family: $main-font;
-        text-transform: uppercase;
-        color: $white;
-        font-size: 24px;
-        font-weight: 100;
-        margin-top: 12px;
-        margin-bottom: 16px;
     }
 }
