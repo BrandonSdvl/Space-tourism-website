@@ -6,7 +6,17 @@
     height: 88px;
     position: relative;
 
+    @include tablet {
+        padding: 0;
+        height: auto;
+        padding-left: 39px;
+    }
+
     &__hamburger {
         height: 21px;
+
+        @include tablet {
+            display: none;
+        }
     }
 }

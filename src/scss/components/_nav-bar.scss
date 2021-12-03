@@ -1,28 +1,40 @@
 .nav {
-    transform: translateX(100%);
     display: flex;
     transition: transform 0.3s ease, opacity 0.2s ease;
     flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 0;
-    min-height: 100vh;
-    width: 68vw;
-    backdrop-filter: saturate(180%) blur(40px);
-    z-index: 100;
-    opacity: 0;
     padding-top: 34px;
     font-family: $second-font;
+    width: 68vw;
+    z-index: 100;
 
-    &::before {
-        background-color: #9797971e;
-        content: '';
+    @include mobile {
         position: absolute;
-        top: 0;
-        left: 0;
         right: 0;
-        bottom: 0;
-        z-index: -1;
+        top: 0;
+        backdrop-filter: saturate(180%) blur(40px);
+        min-height: 100vh;
+        transform: translateX(100%);
+        opacity: 0;
+        max-width: 260px;
+
+        &::before {
+            background-color: #9797971e;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    }
+
+    @include tablet {
+        height: auto;
+        width: auto;
+        margin: 0;
+        background-color: #151923;
+        padding: 0 46px;
     }
 
     &--show {
@@ -34,6 +46,10 @@
         align-self: flex-end;
         width: 20px;
         margin-right: 26px;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__list {
@@ -43,33 +59,73 @@
         text-transform: uppercase;
         margin-top: 70px;
         position: relative;
+
+        @include tablet {
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            letter-spacing: 2.36px;
+            font-weight: 400;
+            gap: 37px;
+        }
     }
 
     &__indicator {
         display: block;
         position: absolute;
-        right: 0;
-        top: 0;
         background-color: $white;
-        width: 4px;
-        height: 40px;
         transition: top 0.3s ease-in-out;
+
+        @include mobile {
+            right: 0;
+            top: 0;
+            width: 4px;
+            height: 40px;
+        }
+
+        @include tablet {
+            transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+            width: 36px;
+            height: 3px;
+            left: 0;
+            bottom: 0;
+        }
     }
 
     &__item {
         padding-left: 32px;
         margin-bottom: 40px;
         width: 100%;
+
+        @include tablet {
+            padding: 0;
+            margin: 0;
+            width: auto;
+        }
     }
 
     &__link {
         color: $white;
         width: 100%;
         display: block;
-        padding: 10px 0;
+
+        @include mobile {
+            padding: 10px 0;
+        }
+
+        @include tablet {
+            width: auto;
+            padding-top: 39px;
+            padding-bottom: 39px;
+        }
     }
 
     &__number {
         font-weight: bold;
+
+        @include tablet {
+            display: none;
+        }
     }
 }
