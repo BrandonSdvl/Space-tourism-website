@@ -35,7 +35,7 @@ export default {
     const indicator = ref(null);
     const navList = ref(null);
     const route = useRoute();
-    let screenWidth = window.screen.width;
+    let screenWidth = ref(window.screen.width);
     let navX = 0;
     let items = [];
 
@@ -54,18 +54,35 @@ export default {
     });
 
     const handleResize = () => {
-      screenWidth = window.screen.width;
+      screenWidth.value = window.screen.width;
       navX = navList.value.getBoundingClientRect().x;
+
+      if (screenWidth.value < 745) {
+        indicator.value.style.width = "4px";
+        indicator.value.style.height = "";
+        indicator.value.style.top = "0px";
+        indicator.value.style.right = "0px";
+        indicator.value.style.bottom = "";
+        indicator.value.style.left = "";
+      } else if (screenWidth.value >= 745) {
+        indicator.value.style.width = "";
+        indicator.value.style.height = "3px";
+        indicator.value.style.top = "";
+        indicator.value.style.right = "";
+        indicator.value.style.bottom = "0px";
+        indicator.value.style.left = "0px";
+      }
+      moveIndicator();
     };
 
     const handleClick = () => {
-      if (screenWidth < 768) {
+      if (screenWidth.value < 745) {
         emit("showNav");
       }
     };
 
     const moveIndicator = () => {
-      if (screenWidth < 768) {
+      if (screenWidth.value < 745) {
         switch (route.name) {
           case "Home":
             indicator.value.style.top = "0";
@@ -121,6 +138,7 @@ export default {
       navList,
       moveIndicator,
       handleClick,
+      screenWidth,
     };
   },
 };
