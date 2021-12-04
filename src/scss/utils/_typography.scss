@@ -21,6 +21,11 @@ sans-serif;
     text-align: center;
     color: $light-gray;
     margin: 0;
+
+    @include tablet {
+        font-size: 16px;
+        line-height: 28px;
+    }
 }
 
 .heading-3 {
@@ -31,4 +36,10 @@ sans-serif;
     color: $white;
     margin-top: 12px;
     margin-bottom: 16px;
+
+    @include tablet {
+        font-size: 40px;
+        font-weight: 200;
+        margin-top: 16px;
+    }
 }

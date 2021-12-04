@@ -39,8 +39,6 @@ export default {
     let navX = 0;
     let items = [];
 
-    console.log(route);
-
     onMounted(() => {
       window.addEventListener("resize", handleResize);
       navX = navList.value.getBoundingClientRect().x;
@@ -86,6 +84,7 @@ export default {
             break;
         }
       } else {
+        navX = navList.value.getBoundingClientRect().x;
         switch (route.name) {
           case "Home":
             indicator.value.style.left = `${

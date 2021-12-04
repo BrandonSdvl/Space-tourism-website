@@ -3,6 +3,12 @@
     margin-left: auto;
     margin-right: auto;
 
+    @include tablet {
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     &__image-container {
         position: relative;
         min-height: 220px;
@@ -12,9 +18,17 @@
         display: flex;
         justify-content: center;
 
+        @include tablet {
+            border: none;
+        }
+
         div {
             width: 80%;
             text-align: center;
+
+            @include tablet {
+                width: auto;
+            }
         }
     }
 
@@ -26,6 +40,10 @@
         right: 0;
         margin-left: auto;
         margin-right: auto;
+
+        @include tablet {
+            height: 52vh;
+        }
     }
 
     &__content-container {
@@ -34,17 +52,26 @@
         text-align: center;
         display: flex;
         justify-content: center;
+
+        @include tablet {
+            width: 59.64vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     &__nav {
-        margin: 35px 0;
+        margin: 32px 0;
+
+        @include tablet {
+            margin: 40px 0;
+        }
     }
 
     &__list {
         display: flex;
         gap: 16px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
         width: auto;
         justify-content: center;
     }
@@ -67,5 +94,10 @@
         font-weight: 100;
         font-size: 16px;
         color: $gray;
+
+        @include tablet {
+            font-size: 24px;
+            font-weight: 200
+        }
     }
 }

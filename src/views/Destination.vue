@@ -17,11 +17,12 @@ section.view--destination
           draggable="false"
         )
     nav.destination__nav
-      .destination__indicator(ref="indicator")
+      .destination__indicator(ref="indicatorDestination")
       ul.destination__list
         li.destination__list-item(
           v-for="(destination, idx) in destinations",
-          @click="currDestination = idx"
+          @click="currDestination = idx",
+          :class="{ 'destination__list-item--active': currDestination === idx }"
         ) {{ destination.name }}
     .destination__content-container.disable-selection
       Slider.destination__content(
@@ -56,12 +57,13 @@ export default {
   setup() {
     const store = useStore();
     let currDestination = ref(0);
-    const indicator = ref(null);
+    const indicatorDestination = ref(null);
     let items = [];
 
     onMounted(() => {
       window.addEventListener("resize", moveIndicator);
       items = document.querySelectorAll(".destination__list-item");
+      moveIndicator();
     });
 
     onUnmounted(() => {
@@ -77,10 +79,10 @@ export default {
     };
 
     const moveIndicator = () => {
-      indicator.value.style.left = `${
+      indicatorDestination.value.style.left = `${
         items[currDestination.value].getBoundingClientRect().left
       }px`;
-      indicator.value.style.width = `${
+      indicatorDestination.value.style.width = `${
         items[currDestination.value].clientWidth
       }px`;
     };
@@ -88,7 +90,7 @@ export default {
     return {
       destinations: computed(() => store.state.destinations),
       slidesLen: computed(() => store.state.destinations.length),
-      indicator,
+      indicatorDestination,
       currDestination,
       updateSlide,
     };

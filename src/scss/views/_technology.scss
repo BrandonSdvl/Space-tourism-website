@@ -1,21 +1,16 @@
 .technology {
     &__image-container {
         position: relative;
-        min-height: 170px;
-        height: 24vh;
+        height: auto;
         width: 100%;
         display: flex;
         justify-content: center;
     }
 
     &__img {
-        width: 100%;
-        min-height: 170px;
-        height: 24vh;
+        width: 100vw;
         left: 0;
         right: 0;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     &__content-container {
@@ -27,24 +22,39 @@
         display: flex;
         justify-content: center;
 
+        @include tablet {
+            width: 59.7vw;
+        }
+
         span {
             font-size: 14px;
             font-family: $second-font;
             color: $light-gray;
             letter-spacing: 2.36px;
             font-weight: 200;
+
+            @include tablet {
+                font-size: 16px;
+                letter-spacing: 2.7px;
+            }
         }
     }
 
     &__nav {
         margin-top: 34px;
-        margin-bottom: 30px;
+        margin-bottom: 27px;
+
+        @include tablet {
+            margin-top: 56px;
+            margin-bottom: 44px;
+        }
     }
 
     &__list {
         display: flex;
         justify-content: center;
         gap: 16px;
+        margin: 0;
     }
 
     &__list-item {
@@ -58,6 +68,13 @@
         font-size: 16px;
         font-family: $main-font;
         transition: background-color 0.2s ease-in;
+
+        @include tablet {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 24px;
+        }
 
         &--active {
             background-color: $white;
