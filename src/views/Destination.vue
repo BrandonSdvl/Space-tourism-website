@@ -16,32 +16,33 @@ section.view--destination
           :src="destination.images.png || destination.images.webp",
           draggable="false"
         )
-    nav.destination__nav
-      .destination__indicator(ref="indicatorDestination")
-      ul.destination__list
-        li.destination__list-item(
+    .destination__info
+      nav.destination__nav(ref="navDestination")
+        .destination__indicator(ref="indicatorDestination")
+        ul.destination__list
+          li.destination__list-item(
+            v-for="(destination, idx) in destinations",
+            @click="currDestination = idx",
+            :class="{ 'destination__list-item--active': currDestination === idx }"
+          ) {{ destination.name }}
+      .destination__content-container.disable-selection
+        Slider.destination__content(
+          v-show="currDestination === idx",
           v-for="(destination, idx) in destinations",
-          @click="currDestination = idx",
-          :class="{ 'destination__list-item--active': currDestination === idx }"
-        ) {{ destination.name }}
-    .destination__content-container.disable-selection
-      Slider.destination__content(
-        v-show="currDestination === idx",
-        v-for="(destination, idx) in destinations",
-        :slidesLen="slidesLen",
-        :currSlide="currDestination",
-        @updateSlide="updateSlide"
-      )
-        .destination__details
-          h2.destination__name {{ destination.name }}
-          p.body-text {{ destination.description }}
-        .destination__numbers
-          div
-            h3 Avg. distance
-            span {{ destination.distance }}
-          div
-            h3 Est. travel time
-            span {{ destination.travel }}
+          :slidesLen="slidesLen",
+          :currSlide="currDestination",
+          @updateSlide="updateSlide"
+        )
+          .destination__details
+            h2.destination__name {{ destination.name }}
+            p.body-text {{ destination.description }}
+          .destination__numbers
+            div
+              h3 Avg. distance
+              span {{ destination.distance }}
+            div
+              h3 Est. travel time
+              span {{ destination.travel }}
 </template>
 
 <script>
@@ -58,6 +59,7 @@ export default {
     const store = useStore();
     let currDestination = ref(0);
     const indicatorDestination = ref(null);
+    const navDestination = ref(null);
     let items = [];
 
     onMounted(() => {
@@ -80,7 +82,8 @@ export default {
 
     const moveIndicator = () => {
       indicatorDestination.value.style.left = `${
-        items[currDestination.value].getBoundingClientRect().left
+        items[currDestination.value].getBoundingClientRect().left -
+        navDestination.value.getBoundingClientRect().x
       }px`;
       indicatorDestination.value.style.width = `${
         items[currDestination.value].clientWidth
@@ -91,6 +94,7 @@ export default {
       destinations: computed(() => store.state.destinations),
       slidesLen: computed(() => store.state.destinations.length),
       indicatorDestination,
+      navDestination,
       currDestination,
       updateSlide,
     };

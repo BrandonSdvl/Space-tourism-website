@@ -12,6 +12,32 @@
         padding-left: 39px;
     }
 
+    @include laptop {
+        padding-top: 30px;
+        padding-left: 45px;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 1px;
+            background-color: $dark-gray;
+            width: 31%;
+            left: 11%;
+            z-index: 100;
+
+            @include desktop {
+                left: 11.5%;
+                width: 33%;
+            }
+        }
+    }
+
+    @include desktop {
+        padding-top: 40px;
+        padding-left: 55px;
+    }
+
     &__hamburger {
         height: 21px;
 

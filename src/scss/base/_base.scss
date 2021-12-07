@@ -15,6 +15,7 @@ body {
     overflow-x: hidden;
     width: 100vw;
     transition: background-image 0.2s ease-in;
+    background-color: $black;
 }
 
 html {
@@ -92,4 +93,11 @@ ul {
     display: flex;
     flex-direction: column;
     position: relative;
+    flex: 1;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

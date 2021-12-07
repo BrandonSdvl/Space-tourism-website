@@ -12,25 +12,29 @@ section.view--technology
         :currSlide="currTechnology",
         @updateSlide="updateSlide"
       )
-        img.technology__img(:src="tech.images.landscape", draggable="false")
-    nav.technology__nav
-      ul.technology__list
-        li.technology__list-item(
+        img.technology__img(
+          :src="screenWidth >= 1024 ? tech.images.portrait : tech.images.landscape",
+          draggable="false"
+        )
+    .technology__info
+      nav.technology__nav
+        ul.technology__list
+          li.technology__list-item(
+            v-for="(tech, idx) in technology",
+            @click="currTechnology = idx",
+            :class="{ 'technology__list-item--active': currTechnology === idx }"
+          ) {{ idx + 1 }}
+      .technology__content-container.disable-selection
+        Slider.technology__content(
+          v-show="currTechnology === idx",
           v-for="(tech, idx) in technology",
-          @click="currTechnology = idx",
-          :class="{ 'technology__list-item--active': currTechnology === idx }"
-        ) {{ idx + 1 }}
-    .technology__content-container.disable-selection
-      Slider.technology__content(
-        v-show="currTechnology === idx",
-        v-for="(tech, idx) in technology",
-        :slidesLen="slidesLen",
-        :currSlide="currTechnology",
-        @updateSlide="updateSlide"
-      )
-        span THE TERMINOLOGY...
-        h3.heading-3 {{ tech.name }}
-        p.body-text {{ tech.description }}
+          :slidesLen="slidesLen",
+          :currSlide="currTechnology",
+          @updateSlide="updateSlide"
+        )
+          span THE TERMINOLOGY...
+          h3.heading-3 {{ tech.name }}
+          p.body-text {{ tech.description }}
 </template>
 
 <script>
@@ -53,6 +57,7 @@ export default {
 
     return {
       technology: computed(() => store.state.technology),
+      screenWidth: computed(() => window.screen.width),
       slidesLen: computed(() => store.state.technology.length),
       currTechnology,
       updateSlide,

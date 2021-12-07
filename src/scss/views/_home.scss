@@ -8,9 +8,22 @@
         width: 58.6vw;
     }
 
+    @include laptop {
+        width: 40vw;
+        margin: 0;
+    }
+
+    @include desktop {
+        width: 31.25vw;
+    }
+
     .view__title {
         margin: 0;
         text-align: center;
+
+        @include laptop {
+            text-align: left;
+        }
     }
 
     &__title {
@@ -28,6 +41,14 @@
             font-size: 150px;
             line-height: 150px
         }
+
+        @include laptop {
+            font-size: 125px;
+        }
+
+        @include desktop {
+            font-size: 150px;
+        }
     }
 
     &__description {
@@ -44,25 +65,61 @@
         display: block;
         background-color: $white;
         border-radius: 50%;
-        width: 150px;
-        height: 150px;
+        width: 40vw;
+        height: 40vw;
         text-align: center;
-        line-height: 150px;
         font-family: $main-font;
         font-size: 20px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 2rem;
         letter-spacing: 1.25px;
+        max-width: 230px;
+        max-height: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @include tablet {
             margin-top: 156px;
             width: 242px;
             height: 242px;
-            line-height: 242px;
             font-size: 32px;
             letter-spacing: 2px;
             font-size: 32px;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        @include laptop {
+            margin: 0;
+            width: 274px;
+            height: 274px;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                content: '';
+                display: block;
+                background-color: rgba(255, 255, 255, 0.1);
+                width: 31.25vw;
+                height: 31.25vw;
+                z-index: -1;
+                border-radius: 50%;
+                transform: scale(0);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            &:hover {
+                &::before {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        @include desktop {
+            width: 19vw;
+            height: 19vw;
         }
     }
 }

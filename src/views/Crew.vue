@@ -16,24 +16,25 @@ section.view--crew
           :src="crewmate.images.png || crewmate.images.webp",
           draggable="false"
         )
-    nav.crew__nav
-      ul.crew__list
-        li.crew__list-item(
+    .crew__info
+      nav.crew__nav
+        ul.crew__list
+          li.crew__list-item(
+            v-for="(crewmate, idx) in crew",
+            @click="currCrew = idx",
+            :class="{ 'crew__list-item--active': currCrew === idx }"
+          )
+      .crew__content-container.disable-selection
+        Slider.crew__content(
+          v-show="currCrew === idx",
           v-for="(crewmate, idx) in crew",
-          @click="currCrew = idx",
-          :class="{ 'crew__list-item--active': currCrew === idx }"
+          :slidesLen="slidesLen",
+          :currSlide="currCrew",
+          @updateSlide="updateSlide"
         )
-    .crew__content-container.disable-selection
-      Slider.crew__content(
-        v-show="currCrew === idx",
-        v-for="(crewmate, idx) in crew",
-        :slidesLen="slidesLen",
-        :currSlide="currCrew",
-        @updateSlide="updateSlide"
-      )
-        span.crew__role {{ crewmate.role }}
-        h3.heading-3 {{ crewmate.name }}
-        p.body-text {{ crewmate.bio }}
+          span.crew__role {{ crewmate.role }}
+          h3.heading-3 {{ crewmate.name }}
+          p.body-text {{ crewmate.bio }}
 </template>
 
 <script>

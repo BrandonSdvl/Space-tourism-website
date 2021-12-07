@@ -1,16 +1,41 @@
 .technology {
+    @include laptop {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        flex: 1;
+    }
+
+    &__info {
+        @include laptop {
+            display: flex;
+            gap: 80px;
+            align-items: center;
+        }
+    }
+
     &__image-container {
         position: relative;
         height: auto;
         width: 100%;
         display: flex;
         justify-content: center;
+
+        @include laptop {
+            width: 35.7vw;
+        }
     }
 
     &__img {
         width: 100vw;
         left: 0;
         right: 0;
+
+        @include laptop {
+            width: 35.7vw;
+        }
     }
 
     &__content-container {
@@ -24,6 +49,14 @@
 
         @include tablet {
             width: 59.7vw;
+        }
+
+        @include laptop {
+            width: 33vw;
+
+            .body-text {
+                width: 93.5%;
+            }
         }
 
         span {
@@ -40,6 +73,12 @@
         }
     }
 
+    &__content {
+        @include laptop {
+            text-align: left;
+        }
+    }
+
     &__nav {
         margin-top: 34px;
         margin-bottom: 27px;
@@ -48,6 +87,10 @@
             margin-top: 56px;
             margin-bottom: 44px;
         }
+
+        @include laptop {
+            margin: 0;
+        }
     }
 
     &__list {
@@ -55,6 +98,15 @@
         justify-content: center;
         gap: 16px;
         margin: 0;
+
+        @include laptop {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include laptop {
+            gap: 32px;
+        }
     }
 
     &__list-item {
@@ -74,6 +126,13 @@
             height: 60px;
             line-height: 60px;
             font-size: 24px;
+        }
+
+        @include laptop {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 32px;
         }
 
         &--active {

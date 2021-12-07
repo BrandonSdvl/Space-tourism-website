@@ -37,6 +37,30 @@
         padding: 0 46px;
     }
 
+    @include laptop {
+        position: relative;
+        background-color: transparent;
+        backdrop-filter: saturate(180%) blur(40px);
+        padding-right: 7rem;
+        padding-left: 5.5rem;
+
+        &::before {
+            background-color: #9797971e;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    }
+
+    @include desktop {
+        padding-right: 10rem;
+        padding-left: 7.5rem;
+    }
+
     &--show {
         transform: translateX(0);
         opacity: 1;
@@ -68,6 +92,12 @@
             letter-spacing: 2.36px;
             font-weight: 400;
             gap: 37px;
+        }
+
+        @include laptop {
+            font-size: 16px;
+            letter-spacing: 2.7px;
+            gap: 50px;
         }
     }
 
@@ -103,6 +133,15 @@
             margin: 0;
             width: auto;
         }
+
+        @include laptop {
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.1s ease-in-out;
+
+            &:hover {
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+        }
     }
 
     &__link {
@@ -126,6 +165,10 @@
 
         @include tablet {
             display: none;
+        }
+
+        @include laptop {
+            display: inline;
         }
     }
 }

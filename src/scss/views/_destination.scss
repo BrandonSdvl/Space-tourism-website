@@ -1,4 +1,15 @@
 .destination {
+    @include laptop {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8rem;
+
+        &__info {
+            width: 31vw;
+        }
+    }
+
     &__image-container {
         position: relative;
         height: 45.34vw;
@@ -8,6 +19,11 @@
 
         @include tablet {
             height: 39vw;
+        }
+
+        @include laptop {
+            height: 31vw;
+            width: auto;
         }
     }
 
@@ -22,6 +38,11 @@
         @include tablet {
             width: 39vw;
             height: 39vw;
+        }
+
+        @include laptop {
+            width: 31vw;
+            height: 31vw;
         }
     }
 
@@ -43,6 +64,11 @@
         @include tablet {
             width: 74.6vw;
         }
+
+        @include laptop {
+            width: 31vw;
+            text-align: left;
+        }
     }
 
     &__nav {
@@ -53,6 +79,11 @@
             margin-top: 53px;
             margin-bottom: 32px;
         }
+
+        @include laptop {
+            margin-bottom: 37px;
+            margin-top: 0;
+        }
     }
 
     &__list {
@@ -61,12 +92,17 @@
         width: auto;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 0;
         justify-content: center;
-        padding-bottom: 14px;
         gap: 26px;
 
         @include tablet {
             gap: 35px;
+        }
+
+        @include laptop {
+            justify-content: flex-start;
+            padding: 0;
         }
     }
 
@@ -77,10 +113,23 @@
         color: $white;
         font-family: $second-font;
         font-weight: 200;
+        cursor: pointer;
+        padding: 14px 0;
 
         @include tablet {
             font-size: 16px;
             letter-spacing: 2.7px;
+        }
+
+        @include laptop {
+            display: block;
+            height: 100%;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.1s ease-in-out;
+
+            &:hover {
+                border-color: rgba(255, 255, 255, 0.5);
+            }
         }
 
         &--active {
@@ -95,8 +144,11 @@
         width: 30px;
         position: absolute;
         transition: width 0.2s ease-in, left 0.2s ease-in;
-        left: 18.3vw;
         bottom: 0;
+
+        @include laptop {
+            left: 0;
+        }
     }
 
     &__name {
@@ -111,6 +163,11 @@
             font-weight: 200;
             margin-bottom: 8px;
         }
+
+        @include laptop {
+            font-size: 100px;
+            margin-bottom: 14px;
+        }
     }
 
     &__details {
@@ -122,6 +179,10 @@
             padding-bottom: 49px;
             margin-bottom: 28px;
         }
+
+        @include laptop {
+            padding-bottom: 54px;
+        }
     }
 
     &__numbers {
@@ -130,8 +191,16 @@
             justify-content: space-around;
         }
 
+        @include laptop {
+            justify-content: flex-start;
+        }
+
         div {
             margin-bottom: 40px;
+
+            @include laptop {
+                margin-right: 3rem;
+            }
         }
 
         h3 {
