@@ -1,6 +1,7 @@
 <template lang="pug">
 header.header
-  img.header__logo(:src="require('../assets/shared/logo.svg')", alt="Logo")
+  router-link(to="/")
+    img.header__logo(:src="require('../assets/shared/logo.svg')", alt="Logo")
   img.header__hamburger(
     :src="require('../assets/shared/icon-hamburger.svg')",
     @click="showNav()",
