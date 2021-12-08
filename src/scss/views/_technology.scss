@@ -100,7 +100,6 @@
         margin: 0;
 
         @include laptop {
-            display: flex;
             flex-direction: column;
         }
 

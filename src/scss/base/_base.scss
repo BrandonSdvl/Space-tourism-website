@@ -49,18 +49,28 @@ ul {
     }
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1;
+    margin-bottom: 3rem;
+    width: 100vw;
+}
+
+#app {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .disable-selection {
     -moz-user-select: none;
-    /* Firefox */
     -ms-user-select: none;
-    /* Internet Explorer */
     -khtml-user-select: none;
-    /* KHTML browsers (e.g. Konqueror) */
     -webkit-user-select: none;
-    /* Chrome, Safari, and Opera */
     -webkit-touch-callout: none;
-    /* Disable Android and iOS callouts*/
-
     user-select: none;
 }
 
@@ -87,17 +97,4 @@ ul {
 .fade-leave-to {
     opacity: 0;
     position: absolute;
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    flex: 1;
-}
-
-#app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }

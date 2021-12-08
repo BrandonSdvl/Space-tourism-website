@@ -14,7 +14,8 @@ section.view--technology
       )
         img.technology__img(
           :src="screenWidth >= 1024 ? tech.images.portrait : tech.images.landscape",
-          draggable="false"
+          draggable="false",
+          alt="Technology image"
         )
     .technology__info
       nav.technology__nav

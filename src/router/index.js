@@ -11,19 +11,24 @@ const routes = [
     component: Home,
   },
   {
-    path: "/destination",
+    path: "/destination/:pathMatch(.*)*",
     name: "Destination",
     component: Destination,
   },
   {
-    path: "/crew",
+    path: "/crew/:pathMatch(.*)*",
     name: "Crew",
     component: Crew,
   },
   {
-    path: "/technology",
+    path: "/technology/:pathMatch(.*)*",
     name: "Technology",
     component: Technology,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "Home",
+    component: Home,
   },
 ];
 

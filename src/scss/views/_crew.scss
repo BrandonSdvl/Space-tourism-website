@@ -37,7 +37,7 @@
 
         @include tablet {
             border: none;
-            height: 52vh;
+            flex: 1;
         }
 
         @include laptop {
@@ -90,6 +90,7 @@
         @include laptop {
             gap: 5rem;
             width: 60%;
+            margin-top: 3rem;
         }
     }
 

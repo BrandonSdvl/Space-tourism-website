@@ -1,20 +1,29 @@
 .home {
-    margin-top: 28px;
-
-    @include tablet {
-        margin-top: 106px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 58.6vw;
-    }
-
     @include laptop {
-        width: 40vw;
-        margin: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 
-    @include desktop {
-        width: 31.25vw;
+    &__content {
+        margin-top: 28px;
+
+        @include tablet {
+            margin-top: 106px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 58.6vw;
+        }
+
+        @include laptop {
+            width: 40vw;
+            margin: 0;
+        }
+
+        @include desktop {
+            width: 31.25vw;
+        }
     }
 
     .view__title {
@@ -43,6 +52,7 @@
         }
 
         @include laptop {
+            text-align: left;
             font-size: 125px;
         }
 
@@ -55,14 +65,12 @@
         margin: 0 30px;
 
         @include tablet {
-            margin: 0 3px;
+            margin: 0;
         }
     }
 
     &__link {
         color: $black;
-        margin-top: 81px;
-        display: block;
         background-color: $white;
         border-radius: 50%;
         width: 40vw;
@@ -70,9 +78,7 @@
         text-align: center;
         font-family: $main-font;
         font-size: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 2rem;
+        margin: 81px auto 2rem auto;
         letter-spacing: 1.25px;
         max-width: 230px;
         max-height: 230px;
@@ -84,7 +90,6 @@
             margin-top: 156px;
             width: 242px;
             height: 242px;
-            font-size: 32px;
             letter-spacing: 2px;
             font-size: 32px;
             max-width: 300px;

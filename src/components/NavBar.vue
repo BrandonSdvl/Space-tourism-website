@@ -2,7 +2,8 @@
 nav.nav
   img.nav__icon-close(
     :src="require('../assets/shared/icon-close.svg')",
-    @click="$emit('showNav')"
+    @click="$emit('showNav')",
+    alt="Close"
   )
   ul.nav__list(ref="navList")
     .nav__indicator(ref="indicator")

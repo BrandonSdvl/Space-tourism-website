@@ -14,7 +14,8 @@ section.view--crew
       )
         img.crew__img(
           :src="crewmate.images.png || crewmate.images.webp",
-          draggable="false"
+          draggable="false",
+          alt="Crew image"
         )
     .crew__info
       nav.crew__nav

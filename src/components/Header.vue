@@ -1,9 +1,10 @@
 <template lang="pug">
 header.header
-  img.header__logo(:src="require('../assets/shared/logo.svg')")
+  img.header__logo(:src="require('../assets/shared/logo.svg')", alt="Logo")
   img.header__hamburger(
     :src="require('../assets/shared/icon-hamburger.svg')",
-    @click="showNav()"
+    @click="showNav()",
+    alt="Hamburger"
   )
   NavBar(ref="nav", @showNav="showNav")
 </template>

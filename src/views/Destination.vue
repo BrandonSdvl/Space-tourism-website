@@ -14,7 +14,8 @@ section.view--destination
       )
         img.destination__img(
           :src="destination.images.png || destination.images.webp",
-          draggable="false"
+          draggable="false",
+          alt="Destination image"
         )
     .destination__info
       nav.destination__nav(ref="navDestination")
