@@ -5,24 +5,25 @@ nav.nav
     @click="$emit('showNav')",
     alt="Close"
   )
-  ul.nav__list(ref="navList")
+  .nav__list-container(ref="navList")
     .nav__indicator(ref="indicator")
-    li.nav__item
-      router-link.nav__link(to="/", @click="handleClick")
-        span.nav__number 00 &nbsp;
-        | Home
-    li.nav__item
-      router-link.nav__link(to="/destination", @click="handleClick")
-        span.nav__number 01 &nbsp;
-        | Destination
-    li.nav__item
-      router-link.nav__link(to="/crew", @click="handleClick")
-        span.nav__number 02 &nbsp;
-        | Crew
-    li.nav__item
-      router-link.nav__link(to="/technology", @click="handleClick")
-        span.nav__number 03 &nbsp;
-        | Technology
+    ul.nav__list
+      li.nav__item
+        router-link.nav__link(to="/", @click="handleClick")
+          span.nav__number 00 &nbsp;
+          | Home
+      li.nav__item
+        router-link.nav__link(to="/destination", @click="handleClick")
+          span.nav__number 01 &nbsp;
+          | Destination
+      li.nav__item
+        router-link.nav__link(to="/crew", @click="handleClick")
+          span.nav__number 02 &nbsp;
+          | Crew
+      li.nav__item
+        router-link.nav__link(to="/technology", @click="handleClick")
+          span.nav__number 03 &nbsp;
+          | Technology
 </template>
 
 <script>

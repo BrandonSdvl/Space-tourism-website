@@ -61,6 +61,15 @@
         padding-left: 7.5rem;
     }
 
+    &__list-container {
+        position: relative;
+        margin-top: 70px;
+
+        @include tablet {
+            margin: 0;
+        }
+    }
+
     &--show {
         transform: translateX(0);
         opacity: 1;
@@ -81,11 +90,10 @@
         letter-spacing: 2.7px;
         font-weight: 200;
         text-transform: uppercase;
-        margin-top: 70px;
+        margin: 0;
         position: relative;
 
         @include tablet {
-            margin: 0;
             display: flex;
             justify-content: space-between;
             font-size: 14px;
